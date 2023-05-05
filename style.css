@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Comme:wght@100&display=swap");
+html {
+  font-size: 62.5%;
+}
+.container {
+  position: relative;
+  width: 50%;
+  height: max-content;
+}
+.container #video {
+  width: 100%;
+  margin: 0 auto;
+}
+.container .controls {
+  position: absolute;
+  top: 90%;
+  left: 2%;
+  display: flex;
+  width: 90%;
+  justify-content: center;
+}
+.item {
+  font-size: 2rem;
+  font-family: "Comme", sans-serif;
+  color: #fff;
+}
+.item:hover {
+  cursor: pointer;
+}
+.item:not(:last-child) {
+  margin-right: 3rem;
+}
+.item-z {
+  margin-left: auto;
+}
+.bar {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgb(166, 166, 171);
+  height: 4px;
+  width: 95%;
+}
+.inner {
+  background-color: #d2122e;
+  width: 0%;
+  height: 100%;
+}
+.width {
+  width: 100% !important;
+}
