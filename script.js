@@ -2,15 +2,34 @@
 const video = document.querySelector("#video");
 const itemY = document.querySelector(".item-y");
 const container = document.querySelector(".container");
+container.addEventListener("contextmenu", (event) => {
+  event.preventDefault();
+});
 // set the pause button to display:none by default
 document.querySelector(".fa-pause").style.display = "none";
 itemY.textContent = ``;
 // update the progress bar
 video.addEventListener("timeupdate", () => {
   let curr = (video.currentTime / video.duration) * 100;
-  itemY.textContent = `${Math.floor(video.currentTime / 60)}/${Math.floor(
-    video.duration / 60
-  )}`;
+  let hours = Math.floor(video.currentTime / 3600)
+    .toString()
+    .padStart(2, "0");
+  let minutes = Math.floor((video.currentTime % 3600) / 60)
+    .toString()
+    .padStart(2, "0");
+  let seconds = Math.floor(video.currentTime % 60)
+    .toString()
+    .padStart(2, "0");
+  let hours2 = Math.floor(video.duration / 3600)
+    .toString()
+    .padStart(2, "0");
+  let minutes2 = Math.floor((video.duration % 3600) / 60)
+    .toString()
+    .padStart(2, "0");
+  let seconds2 = Math.floor(video.duration % 60)
+    .toString()
+    .padStart(2, "0");
+  itemY.textContent = `${hours}:${minutes}:${seconds}/${hours2}:${minutes2}:${seconds2}`;
   if (video.ended) {
     document.querySelector(".fa-play").style.display = "block";
     document.querySelector(".fa-pause").style.display = "none";
